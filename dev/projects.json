@@ -1,0 +1,4 @@
+{
+	"Center": "0, 0, 0, a",
+	"Train Station": "-360.7198335, 35.7388468, -1353.718075, This is where we will have information on each project. It would probably work best if each bit of text is loaded from a json file and selected dynamically - shouldn't be too hard"
+}

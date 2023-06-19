@@ -1,0 +1,1478 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.1.1 glTF Exporter 1.3.1"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 3474,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 2383,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -430.691559, 29.1281681, -1429.42358 ],
+			"max": [ -290.748108, 42.3495255, -1278.01257 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 2383,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 2383,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 2383,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 2383,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 1104,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 7,
+			"count": 641,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -430.691559, 31.4454002, -1429.40259 ],
+			"max": [ -290.778809, 40.4532509, -1278.06006 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 641,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 641,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 641,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 641,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 12,
+			"count": 90,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 13,
+			"count": 82,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -422.744965, 34.0960236, -1429.42358 ],
+			"max": [ -290.748108, 42.3495255, -1306.06555 ]
+		},
+		{
+			"bufferView": 14,
+			"count": 82,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 15,
+			"count": 82,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 16,
+			"count": 82,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 17,
+			"count": 82,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 18,
+			"count": 60,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 19,
+			"count": 30,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -425.762421, 37.2735443, -1428.89465 ],
+			"max": [ -291.559784, 37.7922668, -1291.99048 ]
+		},
+		{
+			"bufferView": 20,
+			"count": 30,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 21,
+			"count": 30,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 22,
+			"count": 30,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 23,
+			"count": 30,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 24,
+			"count": 216,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 25,
+			"count": 118,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -426.299408, 37.2406006, -1420.0658 ],
+			"max": [ -297.944092, 38.3323402, -1287.02466 ]
+		},
+		{
+			"bufferView": 26,
+			"count": 118,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 27,
+			"count": 118,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 28,
+			"count": 118,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 29,
+			"count": 118,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 30,
+			"count": 105,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 31,
+			"count": 41,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -418.88736, 37.3968201, -1407.58899 ],
+			"max": [ -307.394257, 38.3323402, -1283.7887 ]
+		},
+		{
+			"bufferView": 32,
+			"count": 41,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 33,
+			"count": 41,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 34,
+			"count": 41,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 35,
+			"count": 41,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 36,
+			"count": 0,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 37,
+			"count": 0,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 38,
+			"count": 0,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 39,
+			"count": 0,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 40,
+			"count": 0,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 41,
+			"count": 1113,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 42,
+			"count": 645,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -339.301208, 31.4463673, -1423.09546 ],
+			"max": [ -296.130585, 39.7502403, -1382.72681 ]
+		},
+		{
+			"bufferView": 43,
+			"count": 645,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 44,
+			"count": 645,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 45,
+			"count": 645,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 46,
+			"count": 504,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 47,
+			"count": 330,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -339.369415, 39.4487839, -1423.24866 ],
+			"max": [ -296.001129, 40.2804642, -1382.62134 ]
+		},
+		{
+			"bufferView": 48,
+			"count": 330,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 49,
+			"count": 330,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 50,
+			"count": 330,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 51,
+			"count": 0,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 52,
+			"count": 0,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 53,
+			"count": 0,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 54,
+			"count": 0,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "FriargateTrainstation_test.bin",
+			"byteLength": 244188
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 6948,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 28596,
+			"byteOffset": 6948,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 28596,
+			"byteOffset": 35544,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 38128,
+			"byteOffset": 64140,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 19064,
+			"byteOffset": 102268,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 19064,
+			"byteOffset": 121332,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2208,
+			"byteOffset": 140396,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7692,
+			"byteOffset": 142604,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7692,
+			"byteOffset": 150296,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10256,
+			"byteOffset": 157988,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5128,
+			"byteOffset": 168244,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5128,
+			"byteOffset": 173372,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 90,
+			"byteOffset": 178500,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 984,
+			"byteOffset": 178592,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 984,
+			"byteOffset": 179576,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1312,
+			"byteOffset": 180560,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 656,
+			"byteOffset": 181872,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 656,
+			"byteOffset": 182528,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 60,
+			"byteOffset": 183184,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 360,
+			"byteOffset": 183244,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 360,
+			"byteOffset": 183604,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 480,
+			"byteOffset": 183964,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 240,
+			"byteOffset": 184444,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 240,
+			"byteOffset": 184684,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 216,
+			"byteOffset": 184924,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1416,
+			"byteOffset": 185140,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1416,
+			"byteOffset": 186556,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1888,
+			"byteOffset": 187972,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 944,
+			"byteOffset": 189860,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 944,
+			"byteOffset": 190804,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 105,
+			"byteOffset": 191748,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 492,
+			"byteOffset": 191856,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 492,
+			"byteOffset": 192348,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 656,
+			"byteOffset": 192840,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 328,
+			"byteOffset": 193496,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 328,
+			"byteOffset": 193824,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 194152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 194152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 194152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 194152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 194152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2226,
+			"byteOffset": 194152,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7740,
+			"byteOffset": 196380,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 7740,
+			"byteOffset": 204120,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10320,
+			"byteOffset": 211860,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5160,
+			"byteOffset": 222180,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1008,
+			"byteOffset": 227340,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3960,
+			"byteOffset": 228348,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3960,
+			"byteOffset": 232308,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 5280,
+			"byteOffset": 236268,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2640,
+			"byteOffset": 241548,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 244188,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 244188,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 244188,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 0,
+			"byteOffset": 244188,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "MI_Brick_EnglishCorner_Purple_BaseColor.png"
+		},
+		{
+			"uri": "MI_Brick_EnglishCorner_Purple_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Brick_EnglishCorner_Purple_Normal.png"
+		},
+		{
+			"uri": "MI_Brick_EnglishCorner_Purple_Occlusion.png"
+		},
+		{
+			"uri": "MI_FG_StationTrim_BaseColor.png"
+		},
+		{
+			"uri": "MI_FG_StationTrim_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_FG_StationTrim_Normal.png"
+		},
+		{
+			"uri": "MI_FG_StationTrim_Occlusion.png"
+		},
+		{
+			"uri": "MI_Concrete_Rough_01_BaseColor.png"
+		},
+		{
+			"uri": "MI_Concrete_Rough_01_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Concrete_Rough_01_Normal.png"
+		},
+		{
+			"uri": "MI_Concrete_Rough_01_Occlusion.png"
+		},
+		{
+			"uri": "MI_Path_Gravel_BaseColor.png"
+		},
+		{
+			"uri": "MI_Path_Gravel_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Path_Gravel_Normal.png"
+		},
+		{
+			"uri": "MI_Path_Gravel_Occlusion.png"
+		},
+		{
+			"uri": "MI_Trim_Concrete_01_BaseColor.png"
+		},
+		{
+			"uri": "MI_Trim_Concrete_01_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Trim_Concrete_01_Normal.png"
+		},
+		{
+			"uri": "MI_Trim_Concrete_01_Occlusion.png"
+		},
+		{
+			"uri": "MI_Ashphalt_Path_Black_01_BaseColor.png"
+		},
+		{
+			"uri": "MI_Ashphalt_Path_Black_01_Normal.png"
+		},
+		{
+			"uri": "MI_Ashphalt_Path_Black_01_Occlusion.png"
+		},
+		{
+			"uri": "WorldGridMaterial_BaseColor.png"
+		},
+		{
+			"uri": "WorldGridMaterial_MetallicRoughness.png"
+		},
+		{
+			"uri": "WorldGridMaterial_Normal.png"
+		},
+		{
+			"uri": "MI_Wall_DressStone_BaseColor.png"
+		},
+		{
+			"uri": "MI_Wall_DressStone_MetallicRoughness.png"
+		},
+		{
+			"uri": "MI_Wall_DressStone_Normal.png"
+		},
+		{
+			"uri": "MI_Wall_DressStone_Occlusion.png"
+		},
+		{
+			"uri": "MI_Concrete_Rough_02_BaseColor.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "MI_Brick_EnglishCorner_Purple",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 1
+				}
+			},
+			"normalTexture":
+			{
+				"index": 2
+			},
+			"occlusionTexture":
+			{
+				"index": 3
+			}
+		},
+		{
+			"name": "MI_FG_StationTrim",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 4
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 5
+				}
+			},
+			"normalTexture":
+			{
+				"index": 6
+			},
+			"occlusionTexture":
+			{
+				"index": 7
+			}
+		},
+		{
+			"name": "MI_Concrete_Rough_01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 8
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 9
+				}
+			},
+			"normalTexture":
+			{
+				"index": 10
+			},
+			"occlusionTexture":
+			{
+				"index": 11
+			}
+		},
+		{
+			"name": "MI_Path_Gravel",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 12
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 13
+				}
+			},
+			"normalTexture":
+			{
+				"index": 14
+			},
+			"occlusionTexture":
+			{
+				"index": 15
+			}
+		},
+		{
+			"name": "MI_Trim_Concrete_01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 16
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 17
+				}
+			},
+			"normalTexture":
+			{
+				"index": 18
+			},
+			"occlusionTexture":
+			{
+				"index": 19
+			}
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 20
+				},
+				"metallicFactor": 0,
+				"roughnessFactor": 0.964705944
+			},
+			"normalTexture":
+			{
+				"index": 21
+			},
+			"occlusionTexture":
+			{
+				"index": 22
+			}
+		},
+		{
+			"name": "WorldGridMaterial",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 23
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 24
+				}
+			},
+			"normalTexture":
+			{
+				"index": 25
+			}
+		},
+		{
+			"name": "MI_Wall_DressStone",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 26
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 27
+				}
+			},
+			"normalTexture":
+			{
+				"index": 28
+			},
+			"occlusionTexture":
+			{
+				"index": 29
+			}
+		},
+		{
+			"name": "MI_Concrete_Rough_02",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 30
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 31
+				}
+			},
+			"normalTexture":
+			{
+				"index": 32
+			},
+			"occlusionTexture":
+			{
+				"index": 33
+			}
+		},
+		{
+			"name": "lambert12",
+			"pbrMetallicRoughness":
+			{
+				"baseColorFactor": [ 0.231000006, 0.231000006, 0.231000006, 1 ],
+				"metallicFactor": 0,
+				"roughnessFactor": 0.5
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "SM_FriarGate_Station_MainStructure",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 13,
+						"NORMAL": 14,
+						"TANGENT": 15,
+						"TEXCOORD_0": 16,
+						"TEXCOORD_1": 17
+					},
+					"indices": 12,
+					"material": 2
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 19,
+						"NORMAL": 20,
+						"TANGENT": 21,
+						"TEXCOORD_0": 22,
+						"TEXCOORD_1": 23
+					},
+					"indices": 18,
+					"material": 3
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 25,
+						"NORMAL": 26,
+						"TANGENT": 27,
+						"TEXCOORD_0": 28,
+						"TEXCOORD_1": 29
+					},
+					"indices": 24,
+					"material": 4
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 31,
+						"NORMAL": 32,
+						"TANGENT": 33,
+						"TEXCOORD_0": 34,
+						"TEXCOORD_1": 35
+					},
+					"indices": 30,
+					"material": 5
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 36,
+						"NORMAL": 37,
+						"TANGENT": 38,
+						"TEXCOORD_0": 39,
+						"TEXCOORD_1": 40
+					},
+					"material": 6
+				}
+			]
+		},
+		{
+			"name": "SM_FriarGate_BridgeStructure_LimeStoneWalls",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 42,
+						"NORMAL": 43,
+						"TANGENT": 44,
+						"TEXCOORD_0": 45
+					},
+					"indices": 41,
+					"material": 7
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 47,
+						"NORMAL": 48,
+						"TANGENT": 49,
+						"TEXCOORD_0": 50
+					},
+					"indices": 46,
+					"material": 8
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 51,
+						"NORMAL": 52,
+						"TANGENT": 53,
+						"TEXCOORD_0": 54
+					},
+					"material": 9
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"name": "StaticMeshActor_7_StaticMeshComponent0",
+			"mesh": 0
+		},
+		{
+			"name": "SM_FriarGate_BridgeStructure_LimeStoneWalls_2708_StaticMeshComponent0",
+			"mesh": 1
+		}
+	],
+	"samplers": [
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_FG_StationTrim_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_FG_StationTrim_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_FG_StationTrim_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_FG_StationTrim_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_01_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_01_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_01_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_01_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Path_Gravel_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Path_Gravel_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Path_Gravel_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Path_Gravel_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Trim_Concrete_01_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Trim_Concrete_01_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Trim_Concrete_01_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Trim_Concrete_01_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "WorldGridMaterial_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "WorldGridMaterial_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "WorldGridMaterial_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Wall_DressStone_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Wall_DressStone_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Wall_DressStone_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Wall_DressStone_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_02_BaseColor",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_02_MetallicRoughness",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_02_Normal",
+			"minFilter": 9987,
+			"magFilter": 9729
+		},
+		{
+			"name": "MI_Concrete_Rough_02_Occlusion",
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"name": "DUST_All_WP",
+			"nodes": [ 0, 1 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_MetallicRoughness",
+			"sampler": 1,
+			"source": 1
+		},
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_Normal",
+			"sampler": 2,
+			"source": 2
+		},
+		{
+			"name": "MI_Brick_EnglishCorner_Purple_Occlusion",
+			"sampler": 3,
+			"source": 3
+		},
+		{
+			"name": "MI_FG_StationTrim_BaseColor",
+			"sampler": 4,
+			"source": 4
+		},
+		{
+			"name": "MI_FG_StationTrim_MetallicRoughness",
+			"sampler": 5,
+			"source": 5
+		},
+		{
+			"name": "MI_FG_StationTrim_Normal",
+			"sampler": 6,
+			"source": 6
+		},
+		{
+			"name": "MI_FG_StationTrim_Occlusion",
+			"sampler": 7,
+			"source": 7
+		},
+		{
+			"name": "MI_Concrete_Rough_01_BaseColor",
+			"sampler": 8,
+			"source": 8
+		},
+		{
+			"name": "MI_Concrete_Rough_01_MetallicRoughness",
+			"sampler": 9,
+			"source": 9
+		},
+		{
+			"name": "MI_Concrete_Rough_01_Normal",
+			"sampler": 10,
+			"source": 10
+		},
+		{
+			"name": "MI_Concrete_Rough_01_Occlusion",
+			"sampler": 11,
+			"source": 11
+		},
+		{
+			"name": "MI_Path_Gravel_BaseColor",
+			"sampler": 12,
+			"source": 12
+		},
+		{
+			"name": "MI_Path_Gravel_MetallicRoughness",
+			"sampler": 13,
+			"source": 13
+		},
+		{
+			"name": "MI_Path_Gravel_Normal",
+			"sampler": 14,
+			"source": 14
+		},
+		{
+			"name": "MI_Path_Gravel_Occlusion",
+			"sampler": 15,
+			"source": 15
+		},
+		{
+			"name": "MI_Trim_Concrete_01_BaseColor",
+			"sampler": 16,
+			"source": 16
+		},
+		{
+			"name": "MI_Trim_Concrete_01_MetallicRoughness",
+			"sampler": 17,
+			"source": 17
+		},
+		{
+			"name": "MI_Trim_Concrete_01_Normal",
+			"sampler": 18,
+			"source": 18
+		},
+		{
+			"name": "MI_Trim_Concrete_01_Occlusion",
+			"sampler": 19,
+			"source": 19
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01_BaseColor",
+			"sampler": 20,
+			"source": 20
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01_Normal",
+			"sampler": 21,
+			"source": 21
+		},
+		{
+			"name": "MI_Ashphalt_Path_Black_01_Occlusion",
+			"sampler": 22,
+			"source": 22
+		},
+		{
+			"name": "WorldGridMaterial_BaseColor",
+			"sampler": 23,
+			"source": 23
+		},
+		{
+			"name": "WorldGridMaterial_MetallicRoughness",
+			"sampler": 24,
+			"source": 24
+		},
+		{
+			"name": "WorldGridMaterial_Normal",
+			"sampler": 25,
+			"source": 25
+		},
+		{
+			"name": "MI_Wall_DressStone_BaseColor",
+			"sampler": 26,
+			"source": 26
+		},
+		{
+			"name": "MI_Wall_DressStone_MetallicRoughness",
+			"sampler": 27,
+			"source": 27
+		},
+		{
+			"name": "MI_Wall_DressStone_Normal",
+			"sampler": 28,
+			"source": 28
+		},
+		{
+			"name": "MI_Wall_DressStone_Occlusion",
+			"sampler": 29,
+			"source": 29
+		},
+		{
+			"name": "MI_Concrete_Rough_02_BaseColor",
+			"sampler": 30,
+			"source": 30
+		},
+		{
+			"name": "MI_Concrete_Rough_02_MetallicRoughness",
+			"sampler": 31,
+			"source": 9
+		},
+		{
+			"name": "MI_Concrete_Rough_02_Normal",
+			"sampler": 32,
+			"source": 10
+		},
+		{
+			"name": "MI_Concrete_Rough_02_Occlusion",
+			"sampler": 33,
+			"source": 11
+		}
+	]
+}

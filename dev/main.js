@@ -152,6 +152,7 @@ function animate() {
         activeControls.update();
         camera.lookAt(currentFocus);
     } renderer.render(scene, camera);
+
 }
 
 let activeBoxes = {
@@ -291,7 +292,7 @@ function calculateModelCenter(object) {
     return center;
 }
 
-function goto(key) {
+function goto(key, check = true) {
     fetch('projects.json').then(response => response.json()).then(data => {
         const value = data[key];
         const values = value.split(',');
@@ -305,8 +306,12 @@ function goto(key) {
             const modelCenter = new THREE.Vector3(x, y, z);
 
             // Adjust the camera's zoom level
-            const zoomLevel = 10; // Adjust the desired zoom level
-            const cameraRotation = 25;
+            let zoomLevel = 10; // Adjust the desired zoom level
+            let cameraRotation = 25;
+            if(!check){
+                zoomLevel = 0.1; // Adjust the desired zoom level
+                cameraRotation = 0.1;
+            }
             camera.position.y += cameraRotation;
             camera.position.z += zoomLevel;
 
@@ -351,32 +356,22 @@ async function loadImages(data) {
   }
 
   function openFullscreenImage(imageSrc) {
-    // Create a full-screen overlay element
-    const overlay = document.createElement('div');
-    overlay.classList.add('fullscreen-overlay');
-  
-    // Create an image element to display the expanded image
-    const fullscreenImage = document.createElement('img');
-    fullscreenImage.src = imageSrc;
-    fullscreenImage.classList.add('fullscreen-image');
-  
-    // Create a close button
-    const closeButton = document.createElement('button');
-    closeButton.innerText = 'Close';
-    closeButton.classList.add('close-button');
-  
-    // Append the image and close button to the overlay
-    overlay.appendChild(fullscreenImage);
-    overlay.appendChild(closeButton);
-  
-    // Append the overlay to the document body
-    document.body.appendChild(overlay);
-  
-    // Add an event listener to close the full-screen image on button click
-    closeButton.addEventListener('click', function() {
-      document.body.removeChild(overlay);
+
+    const sphereGeometry = new THREE.SphereGeometry(5, 60, 40);
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load(imageSrc);
+    const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+    const sphereMesh = new THREE.Mesh(sphereGeometry, material);
+    scene.add(sphereMesh);
+
+    const elementsToRemove = document.querySelectorAll('.scrollable-box, .custom-box, .custom-box2');
+    elementsToRemove.forEach(element => {
+      element.remove();
     });
-  }
+
+    goto('Center', false);
+
+}
   
 
 animate();

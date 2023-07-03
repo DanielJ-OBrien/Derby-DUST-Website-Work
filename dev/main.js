@@ -161,12 +161,14 @@ let activeBoxes = {
 };
 
 let scrollableBox;
+let activeBox;
 
 function showBox(name, isOverview = false) { // Load the JSON file
     fetch('projects.json').then(response => response.json()).then(data => {
-        const activeBox = isOverview ? activeBoxes.overviewBox : activeBoxes.dataBox;
+        activeBox = isOverview ? activeBoxes.overviewBox : activeBoxes.dataBox;
 
         if (activeBox) {
+            console.log("1");
             document.body.removeChild(activeBox);
             activeBoxes[isOverview ? 'overviewBox' : 'dataBox'] = null;
             return;
@@ -233,8 +235,10 @@ function showBox(name, isOverview = false) { // Load the JSON file
             if (scrollableBoxCheck && scrollableBoxCheck.classList.contains('scrollable-box')) { // Remove the 'scrollable-box' class
                 scrollableBoxCheck.classList.remove('scrollable-box');
                 // Remove the element from the DOM
+                console.log("2");
                 scrollableBoxCheck.parentNode.removeChild(scrollableBoxCheck);
             }
+            console.log("3");
             document.body.removeChild(boxElement);
             activeBoxes[isOverview ? 'overviewBox' : 'dataBox'] = null;
         });
@@ -356,22 +360,40 @@ async function loadImages(data) {
   }
 
   function openFullscreenImage(imageSrc) {
-
+    const oldTarget = orbitControls.target.clone();
+    const oldPosition = camera.position.clone();
+  
     const sphereGeometry = new THREE.SphereGeometry(5, 60, 40);
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(imageSrc);
     const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
     const sphereMesh = new THREE.Mesh(sphereGeometry, material);
     scene.add(sphereMesh);
-
-    const elementsToRemove = document.querySelectorAll('.scrollable-box, .custom-box, .custom-box2');
+  
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '10px';
+    document.body.appendChild(closeButton);
+  
+    closeButton.addEventListener('click', () => {
+      scene.remove(sphereMesh);
+      closeButton.remove();
+  
+      camera.position.copy(oldPosition);
+      orbitControls.target.copy(oldTarget);
+      camera.lookAt(oldTarget);
+      currentFocus.copy(oldTarget);
+    });
+  
+    const elementsToRemove = document.querySelectorAll('.scrollable-box, .custom-box, .custom-box2, #overviewButton');
     elementsToRemove.forEach(element => {
       element.remove();
     });
-
+  
     goto('Center', false);
-
-}
+  }
   
 
 animate();

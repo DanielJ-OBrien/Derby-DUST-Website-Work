@@ -1,33 +1,80 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
-import {PointerLockControls} from 'three/examples/jsm/controls/PointerLockControls.js';
+import {FirstPersonControls} from 'three/examples/jsm/controls/FirstPersonControls.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 var currentFocus = new THREE.Vector3(0, 0, 0);
+var hdrFile;
+const clock = new THREE.Clock();
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Loads model
-function loadModel(modelPath) {
-    const loader = new GLTFLoader();
-    loader.load(modelPath, function (gltf) {
-        const mainModel = gltf.scene;
-        const modelCenter = calculateModelCenter(mainModel);
-        console.log('Model center:', modelCenter);
-        scene.add(mainModel);
-    }, undefined, function (error) {
-        console.error('Error loading model:', error);
-    });
+async function loadModels(data) {
+    try {
+      const modelLoaderScript = 'model_loader.php';
+      const modelFolder = `scenedata/${data}`;
+  
+      // Fetch the model file names from the PHP script
+      const response = await fetch(`${modelLoaderScript}?folder=${
+        encodeURIComponent(modelFolder)
+      }`);
+  
+      const fileNames = await response.json();
+  
+  
+      // Iterate through each model file
+      for (const fileName of fileNames) {
+        const modelPath = `${modelFolder}/${fileName}`;
+        const loader = new GLTFLoader();
+        loader.load(modelPath, function (gltf) {
+          const mainModel = gltf.scene;
+          const modelCenter = calculateModelCenter(mainModel);
+          console.log('Model center:', modelCenter);
+          scene.add(mainModel);
+        }, undefined, function (error) {
+          console.error('Error loading model:', error);
+        });
+      }
+    } catch (error) {
+      console.error('Error loading models:', error);
+    }
 }
-loadModel('scenedata/Train Station/FriargateTrainstation_test.gltf');
-loadModel('scenedata/Bridge/FG_Bridge_InstanceTest.gltf');
 
+loadModels('Bridge');
+loadModels('Train Station');
 
-// Base ambient light
+fetch('bg_loader.php')
+    .then(response => response.blob())
+    .then(blob => {
+        var url = URL.createObjectURL(blob);
+        var loader = new RGBELoader();
+        loader.setDataType(THREE.FloatType);
+        var loader = new RGBELoader();
+        loader.setDataType(THREE.FloatType);
+        loader.load(url, function (texture) {
+        var pmremGenerator = new THREE.PMREMGenerator(renderer);
+        pmremGenerator.compileEquirectangularShader();
+
+        var envMap = pmremGenerator.fromEquirectangular(texture).texture;
+        scene.environment = envMap;
+        scene.background = envMap;
+        scene.backgroundBlurriness = 50;
+        texture.dispose();
+        pmremGenerator.dispose();
+        });
+  })
+  .catch(error => {
+    console.log(error);
+});
+
+//Old lighitng code, may be useful for debugging. Replaced by the HDR lighitng.
+
+/* Base ambient light
 const color = 0xFFFFFF;
 const intensity = 1;
 const ambientLight = new THREE.AmbientLight(color, intensity);
@@ -39,6 +86,7 @@ directionalLight.position.set(0, 10, 0);
 directionalLight.target.position.set(5, 0, -5);
 scene.add(directionalLight);
 scene.add(directionalLight.target);
+*/
 
 // Create orbit controls
 const orbitControls = new OrbitControls(camera, renderer.domElement);
@@ -47,8 +95,10 @@ orbitControls.maxZoom = 100; // Adjust the maximum zoom distance
 camera.position.set(0, 25, 60);
 orbitControls.update();
 
-// Set up first-person controls
-const firstPersonControls = new PointerLockControls(camera, document.body);
+// Create first person controls
+const firstPersonControls = new FirstPersonControls(camera, renderer.domElement);
+firstPersonControls.movementSpeed = 50; // Adjust the movement speed as desired
+firstPersonControls.lookSpeed = 2; // Adjust the look speed as desired
 
 // Sets default active controls
 let activeControls = orbitControls;
@@ -58,25 +108,8 @@ const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 document.addEventListener('click', onClick);
 
-// Create control swap checker
-const switchControls = (e) => {
-    keyboardState[e.code] = true;
-
-    if (e.code === 'Tab') {
-        e.preventDefault(); // Prevent tabbing out of the canvas
-        if (activeControls === orbitControls) {
-            activeControls = firstPersonControls;
-            firstPersonControls.lock();
-        } else {
-            activeControls = orbitControls;
-            firstPersonControls.unlock();
-        }
-    }
-}
-
 // Set up keyboard movement
 const keyboardState = {};
-document.addEventListener('keydown', switchControls);
 document.addEventListener('keyup', (e) => {
     keyboardState[e.code] = false;
 });
@@ -119,40 +152,24 @@ fetch('projects.json').then(response => response.json()).then(data => { // Loop 
 function animate() {
     requestAnimationFrame(animate);
 
-    if (activeControls === firstPersonControls) {
+    // Update the active controls
+    activeControls.update();
 
-        const moveSpeed = 0.35;
+    // Check if the active controls are the orbit controls
+    const isOrbitControls = activeControls === orbitControls;
 
-        const movement = new THREE.Vector3();
-        if (keyboardState['KeyW']) {
-            movement.z -= moveSpeed;
-        }
-        if (keyboardState['KeyS']) {
-            movement.z += moveSpeed;
-        }
-        if (keyboardState['KeyA']) {
-            movement.x -= moveSpeed;
-        }
-        if (keyboardState['KeyD']) {
-            movement.x += moveSpeed;
-        }
-        if (keyboardState['KeyQ']) {
-            movement.y -= moveSpeed;
-        }
-        if (keyboardState['KeyE']) {
-            movement.y += moveSpeed;
-        }
-
-        // Convert the movement vector to the camera's local coordinate system
-        movement.applyQuaternion(camera.quaternion);
-
-        // Update the camera's position
-        camera.position.add(movement);
-    } else {
-        activeControls.update();
+    if (isOrbitControls) {
+        firstPersonControls.enabled = false;
+        orbitControls.enabled = true;
         camera.lookAt(currentFocus);
-    } renderer.render(scene, camera);
+    } else {
+        orbitControls.enabled = false;
+        firstPersonControls.enabled = true;
+        camera.lookAt(currentFocus);
+    }
 
+    // Render the scene
+    renderer.render(scene, camera);
 }
 
 let activeBoxes = {
@@ -167,11 +184,15 @@ function showBox(name, isOverview = false) { // Load the JSON file
     fetch('projects.json').then(response => response.json()).then(data => {
         activeBox = isOverview ? activeBoxes.overviewBox : activeBoxes.dataBox;
 
-        if (activeBox) {
-            console.log("1");
-            document.body.removeChild(activeBox);
-            activeBoxes[isOverview ? 'overviewBox' : 'dataBox'] = null;
-            return;
+        try {
+            if (activeBox) {
+                document.body.removeChild(activeBox);
+                activeBoxes[isOverview ? 'overviewBox' : 'dataBox'] = null;
+                return;
+            }
+        } catch (error) {
+            console.error("An error occurred:", error);
+            // Continue running or perform any desired action
         }
 
         // Create a box element
@@ -220,9 +241,9 @@ function showBox(name, isOverview = false) { // Load the JSON file
             const button = document.createElement('button');
             button.textContent = 'Load Images';
             button.addEventListener('click', () => {
-              loadImages(name);
+                loadImages(name);
             });
-        
+
             // Append the button to the scrollable box
             scrollableBox.appendChild(button);
         }
@@ -235,10 +256,8 @@ function showBox(name, isOverview = false) { // Load the JSON file
             if (scrollableBoxCheck && scrollableBoxCheck.classList.contains('scrollable-box')) { // Remove the 'scrollable-box' class
                 scrollableBoxCheck.classList.remove('scrollable-box');
                 // Remove the element from the DOM
-                console.log("2");
                 scrollableBoxCheck.parentNode.removeChild(scrollableBoxCheck);
             }
-            console.log("3");
             document.body.removeChild(boxElement);
             activeBoxes[isOverview ? 'overviewBox' : 'dataBox'] = null;
         });
@@ -271,21 +290,23 @@ function createClickablePoint(position, name) {
 }
 
 function onClick(event) { // Calculate mouse position in normalized device coordinates (-1 to +1) for raycasting
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-    // Raycasting from the camera position
-    raycaster.setFromCamera(mouse, camera);
-
-    // Check for intersections with the clickable points
-    const intersects = raycaster.intersectObjects(scene.children);
-
-    // Filter intersected objects to only consider clickable spheres
-    const clickableIntersects = intersects.filter(obj => obj.object.userData.isClickable);
-
-    if (clickableIntersects.length > 0) {
-        const clickedObject = clickableIntersects[0].object;
-        showBox(clickedObject.name);
+    if(activeControls == orbitControls){
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    
+        // Raycasting from the camera position
+        raycaster.setFromCamera(mouse, camera);
+    
+        // Check for intersections with the clickable points
+        const intersects = raycaster.intersectObjects(scene.children);
+    
+        // Filter intersected objects to only consider clickable spheres
+        const clickableIntersects = intersects.filter(obj => obj.object.userData.isClickable);
+    
+        if (clickableIntersects.length > 0) {
+            const clickedObject = clickableIntersects[0].object;
+            showBox(clickedObject.name);
+        }   
     }
 }
 
@@ -312,7 +333,7 @@ function goto(key, check = true) {
             // Adjust the camera's zoom level
             let zoomLevel = 10; // Adjust the desired zoom level
             let cameraRotation = 25;
-            if(!check){
+            if (! check) {
                 zoomLevel = 0.1; // Adjust the desired zoom level
                 cameraRotation = 0.1;
             }
@@ -333,67 +354,160 @@ function goto(key, check = true) {
 
 async function loadImages(data) {
     try {
-      const imageLoaderScript = 'image_loader.php';
-      const imageFolder = `scenedata/${data}/images`;
-  
-      // Fetch the image file names from the PHP script
-      const response = await fetch(`${imageLoaderScript}?folder=${encodeURIComponent(imageFolder)}`);
+        const imageLoaderScript = 'image_loader.php';
+        const imageFolder = `scenedata/${data}/images`;
+
+        // Fetch the image file names from the PHP script
+        const response = await fetch(`${imageLoaderScript}?folder=${
+            encodeURIComponent(imageFolder)
+        }`);
 
 
-      const fileNames = await response.json();
+        const fileNames = await response.json();
 
-      console.log(fileNames);
-
-      // Iterate through each image file
-      for (const fileName of fileNames) {
-        const imageElement = document.createElement('img');
-        imageElement.src = `${imageFolder}/${fileName}`;
-        imageElement.className = 'image-square';
-        imageElement.addEventListener('click', () => {
-          openFullscreenImage(imageElement.src);
-        });
-        scrollableBox.appendChild(imageElement);
-      }
+        // Iterate through each image file
+        for (const fileName of fileNames) {
+            const imageElement = document.createElement('img');
+            imageElement.src = `${imageFolder}/${fileName}`;
+            imageElement.className = 'image-square';
+            imageElement.addEventListener('click', () => {
+                openFullscreenImage(imageElement.src);
+            });
+            scrollableBox.appendChild(imageElement);
+        }
     } catch (error) {
-      console.error('Error loading images:', error);
+        console.error('Error loading images:', error);
     }
-  }
+}
 
-  function openFullscreenImage(imageSrc) {
+function openFullscreenImage(imageSrc) {
     const oldTarget = orbitControls.target.clone();
     const oldPosition = camera.position.clone();
-  
+
     const sphereGeometry = new THREE.SphereGeometry(5, 60, 40);
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(imageSrc);
-    const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+    const material = new THREE.MeshBasicMaterial({map: texture, side: THREE.DoubleSide});
     const sphereMesh = new THREE.Mesh(sphereGeometry, material);
     scene.add(sphereMesh);
-  
+
     const closeButton = document.createElement('button');
     closeButton.textContent = 'Close';
     closeButton.style.position = 'absolute';
     closeButton.style.top = '10px';
     closeButton.style.right = '10px';
     document.body.appendChild(closeButton);
-  
+
     closeButton.addEventListener('click', () => {
-      scene.remove(sphereMesh);
-      closeButton.remove();
-  
-      camera.position.copy(oldPosition);
-      orbitControls.target.copy(oldTarget);
-      camera.lookAt(oldTarget);
-      currentFocus.copy(oldTarget);
+        scene.remove(sphereMesh);
+        closeButton.remove();
+        const elementsToRemove = document.querySelectorAll('.scrollable-box, .custom-box, .custom-box2, #overviewButton');
+        elementsToRemove.forEach(element => {
+            element.style.display = "flex";
+        });
+
+        camera.position.copy(oldPosition);
+        orbitControls.target.copy(oldTarget);
+        camera.lookAt(oldTarget);
+        currentFocus.copy(oldTarget);
     });
-  
+
     const elementsToRemove = document.querySelectorAll('.scrollable-box, .custom-box, .custom-box2, #overviewButton');
     elementsToRemove.forEach(element => {
-      element.remove();
+        element.style.display = "none";
     });
-  
+
     goto('Center', false);
+}
+
+// Set up the icon
+const icon = document.getElementById('icon');
+let iconDragging = false;
+
+// Event listeners for icon interactions
+icon.addEventListener('mousedown', () => {
+    if(activeControls == orbitControls){
+        iconDragging = true;
+        icon.style.cursor = 'grabbing';
+    }
+
+});
+
+document.addEventListener('mousemove', (event) => {
+  if (iconDragging && activeControls == orbitControls) {
+    const posX = event.clientX - icon.offsetWidth / 2;
+    const posY = event.clientY - icon.offsetHeight / 2;
+    icon.style.left = `${posX}px`;
+    icon.style.top = `${posY}px`;
   }
-  
+});
+
+document.addEventListener('mouseup', () => {
+    if (iconDragging && activeControls == orbitControls) {
+        iconDragging = false;
+        icon.style.cursor = 'grab';
+        icon.style.left = `calc(50% - ${icon.offsetWidth / 2}px)`;
+        icon.style.top = `calc(5% - ${icon.offsetHeight / 2}px)`;
+
+        // Perform raycasting to detect the model behind the icon
+        const mouse = new THREE.Vector2();
+        const raycaster = new THREE.Raycaster();
+
+        // Calculate normalized device coordinates (NDC) based on mouse position
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        // Set up the raycaster
+        raycaster.setFromCamera(mouse, camera);
+
+        // Perform the raycasting
+        const intersects = raycaster.intersectObjects(scene.children, true);
+        if (intersects.length > 0) {
+            // Get the position of the first intersected surface
+            const position = intersects[0].point;
+        
+            // Move the camera to the position
+            const newPosition = new THREE.Vector3(position.x, position.y + 10, position.z);
+            camera.position.copy(newPosition);
+        
+            // Update the currentFocus variable for first-person controls
+            currentFocus.copy(position);
+        
+            // Render the scene to update the camera position immediately
+            renderer.render(scene, camera);
+
+            // Switch to non-orbit controls
+            activeControls = firstPersonControls;
+        
+            // Add a back button
+            const backButton = document.createElement('button');
+            backButton.textContent = 'Back';
+            backButton.style.position = 'absolute';
+            backButton.style.top = '50px';
+            backButton.style.right = '50px';
+            document.body.appendChild(backButton);
+        
+            // Add an event listener to the back button
+            backButton.addEventListener('click', () => {
+                // Switch back to orbit controls
+                activeControls = orbitControls;
+        
+                // Reset the camera position and rotation
+                camera.position.copy(originalCameraPosition);
+                camera.rotation.copy(originalCameraRotation);
+        
+                // Remove the back button
+                document.body.removeChild(backButton);
+        
+                // Render the scene to update the camera position immediately
+                renderer.render(scene, camera);
+            });
+        }
+        
+        
+    }
+});
+
+
 
 animate();

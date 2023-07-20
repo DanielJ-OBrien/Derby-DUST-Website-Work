@@ -16,7 +16,10 @@ export default defineConfig({
       targets: [
         { src: 'scenedata/', dest: '../' },
         { src: 'projects.json', dest: '../' },
+        { src: 'bg.hdr', dest: '../' },
         { src: 'image_loader.php', dest: '../' },
+        { src: 'model_loader.php', dest: '../' },
+        { src: 'bg_loader.php', dest: '../' },
         { src: 'node_modules/', dest: '../assets' }
       ]
     })

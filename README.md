@@ -1,5 +1,12 @@
 # Derby DUST Website Work
 
+3D Model Visualisation
+![image](https://github.com/DanielJ-OBrien/Derby-DUST-Website-Work/assets/99108127/1c08dbf0-8879-47f0-a737-6ca93fd44f3c)
+
+360 degree Image Viewing
+![image](https://github.com/DanielJ-OBrien/Derby-DUST-Website-Work/assets/99108127/fc2dfd05-f35c-41fd-ae60-98fd7d182ad9)
+
+
 How I had development set up:
 
 npx installed, I edited the files in the dev folder. I then used
